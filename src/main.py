@@ -23,9 +23,13 @@ def main():
             continue
 
         chunks = buscar_chunks_relevantes(vectorstore, pergunta, k=4)
-        resposta = gerar_resposta(pergunta, chunks)
+        resultado = gerar_resposta(pergunta, chunks)
 
-        print(f"\n{resposta}\n")
+        print(f"\n{resultado['resposta']}\n")
+
+        if resultado['fontes']:
+            print(f"Fontes: {', '.join(resultado['fontes'])}")
+
         print("-" * 60)
 
 

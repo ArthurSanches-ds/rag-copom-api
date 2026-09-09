@@ -3,9 +3,7 @@ from langchain_community.vectorstores import Chroma
 
 from loader import carregar_documentos
 from splitter import dividir_em_chunks
-
-PASTA_CHROMA = "chroma_db"
-NOME_MODELO_EMBEDDING = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+from config import PASTA_CHROMA, PASTA_DATA, NOME_MODELO_EMBEDDING
 
 
 def construir_indice(chunks: list) -> Chroma:
@@ -28,6 +26,6 @@ def construir_indice(chunks: list) -> Chroma:
 
 
 if __name__ == "__main__":
-    docs = carregar_documentos("data")
+    docs = carregar_documentos(PASTA_DATA)
     chunks = dividir_em_chunks(docs)
     construir_indice(chunks)

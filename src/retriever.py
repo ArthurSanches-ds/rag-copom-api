@@ -1,8 +1,7 @@
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 
-PASTA_CHROMA = "chroma_db"
-NOME_MODELO_EMBEDDING = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+from config import PASTA_CHROMA, NOME_MODELO_EMBEDDING
 
 
 def carregar_indice() -> Chroma:
